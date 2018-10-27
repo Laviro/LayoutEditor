@@ -3,12 +3,16 @@ import URI from "urijs";
 import { BrowserRouter as Router } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Layout from "../Layout";
+import Header from "../Header";
 import Main from "../Main";
+import "./app.scss";
 
 class App extends React.Component {
   componentDidMount() {
-    const path = new URI().pathname() === "/" ? "layout" : "configuration";
+    let path = new URI().pathname().split("/")[1];
+    if (path === "") {
+      path = "layout";
+    }
     this.props.updateRoute(path);
   }
   render() {
@@ -27,8 +31,8 @@ class App extends React.Component {
               justify="flex-start"
               alignItems="stretch"
             >
-              <Grid key={"layout"} item>
-                <Layout />
+              <Grid key={"header"} item>
+                <Header />
               </Grid>
               <Grid key={"main"} item>
                 <Main />

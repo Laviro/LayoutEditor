@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import * as layoutActions from "./LayoutActions";
+import * as HeaderActions from "./HeaderActions";
 import * as appActions from "../App/AppActions";
-import LayoutReducer from "./LayoutReducer";
-import Layout from "./Layout";
+import HeaderReducer from "./HeaderReducer";
+import Header from "./Header";
 const mapStateToProps = ({
-  layout: {
+  header: {
     drawer: { open }
   },
   app: { controller }
@@ -14,9 +14,9 @@ const mapStateToProps = ({
   controller
 });
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ ...layoutActions, ...appActions }, dispatch);
-export const reducers = { layout: LayoutReducer };
+  bindActionCreators({ ...HeaderActions, ...appActions }, dispatch);
+export const reducers = { header: HeaderReducer };
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Layout);
+)(Header);

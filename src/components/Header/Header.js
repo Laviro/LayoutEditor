@@ -3,7 +3,7 @@ import Bar from "../Bar";
 import Drawer from "../Drawer";
 
 export default props => (
-  <div className="layout">
+  <div className="header">
     <Bar {...props} />
     <Drawer {...props} />
   </div>
